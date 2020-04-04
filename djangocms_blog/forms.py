@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from django import forms
 from django.conf import settings
 from django.core.validators import MaxLengthValidator
@@ -12,7 +10,7 @@ from .models import BlogCategory, BlogConfig, Post
 from .settings import PERMALINK_TYPE_CATEGORY, get_setting
 
 
-class ConfigFormBase(object):
+class ConfigFormBase:
     """
     This provide the app_config property which returns the currently
     selected app_config, whether it's an instance attribute or

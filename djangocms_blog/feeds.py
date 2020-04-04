@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from aldryn_apphooks_config.utils import get_app_instance
 from django.contrib.sites.models import Site
 from django.contrib.syndication.views import Feed

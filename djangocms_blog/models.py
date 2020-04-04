@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 import hashlib
 
 from aldryn_apphooks_config.fields import AppHookConfigField
@@ -15,7 +13,7 @@ from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.encoding import force_bytes, force_text, python_2_unicode_compatible
+from django.utils.encoding import force_bytes, force_text
 from django.utils.functional import cached_property
 from django.utils.html import escape, strip_tags
 from django.utils.translation import get_language, ugettext, ugettext_lazy as _
@@ -46,7 +44,7 @@ thumbnail_model = '%s.%s' % (
 try:
     from knocker.mixins import KnockerModel
 except ImportError:
-    class KnockerModel(object):
+    class KnockerModel:
         """
         Stub class if django-knocker is not installed
         """
@@ -72,7 +70,6 @@ class BlogMetaMixin(ModelMeta):
         return self.build_absolute_uri(self.get_absolute_url())
 
 
-@python_2_unicode_compatible
 class BlogCategory(BlogMetaMixin, TranslatableModel):
     """
     Blog category
@@ -183,7 +180,6 @@ class BlogCategory(BlogMetaMixin, TranslatableModel):
         return escape(strip_tags(description)).strip()
 
 
-@python_2_unicode_compatible
 class Post(KnockerModel, BlogMetaMixin, TranslatableModel):
     """
     Blog post
@@ -497,7 +493,6 @@ class BasePostPlugin(CMSPlugin):
         return self.optimize(posts.all())
 
 
-@python_2_unicode_compatible
 class LatestPostsPlugin(BasePostPlugin):
     latest_posts = models.IntegerField(_('articles'), default=get_setting('LATEST_POSTS'),
                                        help_text=_('The number of latests '
@@ -528,7 +523,6 @@ class LatestPostsPlugin(BasePostPlugin):
         return self.optimize(posts.distinct())[:self.latest_posts]
 
 
-@python_2_unicode_compatible
 class AuthorEntriesPlugin(BasePostPlugin):
     authors = models.ManyToManyField(
         dj_settings.AUTH_USER_MODEL, verbose_name=_('authors'),
@@ -566,7 +560,6 @@ class AuthorEntriesPlugin(BasePostPlugin):
         return authors
 
 
-@python_2_unicode_compatible
 class GenericBlogPlugin(BasePostPlugin):
     class Meta:
         abstract = False
