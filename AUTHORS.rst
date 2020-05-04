@@ -13,6 +13,7 @@ Contributors
 * Adam Chainz
 * alex
 * Bryan Marty
+* Carl Marshall
 * Carlo Ascani
 * Christoph Reimers
 * cluster-master

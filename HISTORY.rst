@@ -4,6 +4,15 @@
 History
 =======
 
+*************************
+1.0.5devCM13 (unreleased)
+*************************
+
+* Ensure compatibility with Django 3.0.x
+* Update build environment to use Python-Poetry
+* Drop support for Django < 2.2
+* Drop support for Python < 3.5
+
 *******************
 1.0.1 (unreleased)
 *******************

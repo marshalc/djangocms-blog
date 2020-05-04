@@ -37,7 +37,7 @@ is open to whoever wants to implement it.
 Branching model
 ~~~~~~~~~~~~~~~
 
-When planning a code cotnribution, these is the project branching model:
+When planning a code contribution, these is the project branching model:
 
 * new features goes to develop
 * bugfixes for releases goes to release/Y.Z.x branches
@@ -59,8 +59,7 @@ If you are proposing a feature:
 
 * Explain in detail how it would work.
 * Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
+* Remember that this is a volunteer-driven project, and that contributions are welcome :)
 
 ************
 Get Started!
@@ -75,9 +74,9 @@ Ready to contribute? Here's how to set up `djangocms-blog` for local development
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv djangocms-blog
+    $ poetry env use 3
+    $ poetry update
     $ cd djangocms-blog/
-    $ python setup.py develop
 
 4. Create a branch for local development::
 
@@ -110,7 +109,7 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
-3. The pull request should work for Python 2.7, 3.4, 3.5 and 3.6. Check
+3. The pull request should work for Python 3.5, 3.6, and 3.7. Check
    https://travis-ci.org/nephila/djangocms-blog/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
