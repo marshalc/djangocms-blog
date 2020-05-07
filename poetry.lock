@@ -14,6 +14,7 @@ django-cms = ">=3.5"
 reference = "1b2cb7424dd33f1a847e8601c23c58a09ea4b130"
 type = "git"
 url = "https://github.com/yakky/aldryn-apphooks-config.git"
+
 [[package]]
 category = "dev"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -158,6 +159,7 @@ django = "3.*"
 reference = "8cb2c533a728ce6198af6e5015e87ff1440c98a3"
 type = "git"
 url = "https://github.com/marshalc/django-appdata.git"
+
 [[package]]
 category = "main"
 description = "Class based template tags for Django"
@@ -339,6 +341,17 @@ name = "djangocms-admin-style"
 optional = false
 python-versions = "*"
 version = "1.5.0"
+
+[[package]]
+category = "main"
+description = "Library to auto setup apphooks"
+name = "djangocms-apphook-setup"
+optional = false
+python-versions = "*"
+version = "0.4.1"
+
+[package.dependencies]
+django-cms = "*"
 
 [[package]]
 category = "dev"
@@ -847,7 +860,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "5e51a339af1d1fa8c8545139f3bea2faf2f82ca9f91b6f8177b593906185a257"
+content-hash = "e011a087c5c7bc226284833f34873ccadd26fdfa0a08431ad1649bc73f19c243"
 python-versions = ">=3.6 <4"
 
 [metadata.files]
@@ -986,6 +999,10 @@ django-treebeard = [
 ]
 djangocms-admin-style = [
     {file = "djangocms-admin-style-1.5.0.tar.gz", hash = "sha256:47d9868aa448e593ce90059d6542a4d907c120d357cd0561c586f5557e3ba316"},
+]
+djangocms-apphook-setup = [
+    {file = "djangocms-apphook-setup-0.4.1.tar.gz", hash = "sha256:48152518ada859a787def20a9e94cfbec094aa9c4c47c39240621b18345f73df"},
+    {file = "djangocms_apphook_setup-0.4.1-py2.py3-none-any.whl", hash = "sha256:7d9987f4933b96e3eddcf52d47977ac669a30413fc4e5eeefdd5c3e28a2da482"},
 ]
 djangocms-attributes-field = [
     {file = "djangocms-attributes-field-1.2.0.tar.gz", hash = "sha256:33e00b28b2f3cb4d09a1423cb613d1ab467e8df78446a04df77e725ac1db05a4"},
