@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from copy import deepcopy
 
 from aldryn_apphooks_config.admin import BaseAppHookConfig, ModelAppHookConfig
@@ -14,9 +11,9 @@ from django.contrib.sites.models import Site
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.six import callable, text_type
 from django.utils.translation import get_language_from_request, ugettext_lazy as _, ungettext as __
 from parler.admin import TranslatableAdmin
+from six import callable, text_type
 
 from .cms_appconfig import BlogConfig
 from .forms import CategoryAdminForm, PostAdminForm

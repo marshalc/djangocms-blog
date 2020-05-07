@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from collections import Counter
 
 from aldryn_apphooks_config.managers.parler import (
@@ -12,7 +9,7 @@ from django.db import models
 from django.utils.timezone import now
 
 
-class TaggedFilterItem(object):
+class TaggedFilterItem:
 
     def tagged(self, other_model=None, queryset=None):
         """

@@ -1,16 +1,12 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 import json
 from operator import itemgetter
 
-import django
-from channels import Group
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 from cms.models import CMSPlugin
 from cms.utils.plugins import reorder_plugins
 from django.db import models
 from django.template import Context
-from django.utils.six import python_2_unicode_compatible
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 from djangocms_text_ckeditor.models import AbstractText
@@ -20,7 +16,6 @@ from djangocms_blog.models import Post, thumbnail_model
 from djangocms_blog.settings import DATE_FORMAT
 
 
-@python_2_unicode_compatible
 class LiveblogInterface(models.Model):
     """
     Abstract Liveblog plugin model, reusable to customize the liveblogging
@@ -86,8 +81,10 @@ class LiveblogInterface(models.Model):
                 'creation_date': self.post_date.strftime(DATE_FORMAT),
                 'changed_date': self.changed_date.strftime(DATE_FORMAT),
             }
-            Group(self.liveblog_group).send({
-                'text': json.dumps(notification),
+            channel_layer = get_channel_layer()
+            async_to_sync(channel_layer.group_send)(self.liveblog_group, {
+                'type': 'knocker.saved',
+                'message': json.dumps(notification)
             })
 
 
@@ -95,12 +92,11 @@ class Liveblog(LiveblogInterface, AbstractText):
     """
     Basic liveblog plugin model
     """
-    if django.VERSION >= (1, 10):
-        cmsplugin_ptr = models.OneToOneField(
-            CMSPlugin,
-            related_name='%(app_label)s_%(class)s', primary_key=True,
-            parent_link=True, on_delete=models.CASCADE
-        )
+    cmsplugin_ptr = models.OneToOneField(
+        CMSPlugin,
+        related_name='%(app_label)s_%(class)s', primary_key=True,
+        parent_link=True, on_delete=models.CASCADE
+    )
     title = models.CharField(_('title'), max_length=255)
     image = FilerImageField(
         verbose_name=_('image'), blank=True, null=True, on_delete=models.SET_NULL,

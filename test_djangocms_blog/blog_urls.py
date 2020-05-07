@@ -1,5 +1,3 @@
-from __future__ import absolute_import, print_function, unicode_literals
-
 from django.conf.urls import url
 
 from djangocms_blog.feeds import FBInstantArticles, LatestEntriesFeed, TagFeed

@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from cms.api import add_plugin
 from haystack.constants import DEFAULT_ALIAS
 from haystack.query import SearchQuerySet

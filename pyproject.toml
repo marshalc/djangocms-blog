@@ -5,7 +5,11 @@ description = "django CMS blog application - Support for multilingual posts, pla
 authors = ["Carl Marshall <marshalc@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+# Override the PyPi versions for some dependancies to get the Django 3.0 compatible versions
+aldryn-apphooks-config = { git = "https://github.com/yakky/aldryn-apphooks-config.git", branch = "feature/django-3.0" }
+django-appdata = { git = "https://github.com/marshalc/django-appdata.git" }
+# Regular DjangoCMS-blog requirements
+python = ">=3.6 <4"
 lxml = "^4.5.0"
 django-parler = "^2.0.1"
 pytz = "^2020.1"
