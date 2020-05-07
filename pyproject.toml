@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "djangocms-blog"
-version = "1.1.1-devCM13"
+version = "1.1.1"
 description = "django CMS blog application - Support for multilingual posts, placeholders, social network meta tags and configurable apphooks."
 authors = ["Carl Marshall <marshalc@users.noreply.github.com>"]
 
